@@ -1,0 +1,12 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-consumer-order # 应用名称
+  cloud:
+    consul: # consul注册中心地址
+      host: 192.168.0.123
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        hostname: 192.168.0.105 # 因为使用的Docker，不加hostname，Health Checks会有一个红叉

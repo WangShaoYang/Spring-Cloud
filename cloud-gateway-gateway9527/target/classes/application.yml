@@ -1,0 +1,30 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        # - 是yml语法，代表数组的意思
+        - id: payment_route1 # 路由ID，没有固定规则，需要保证唯一
+          # uri: http://localhost:8001 # 路由到哪个地址，实际提供微服务的地址
+          uri: lb://cloud-payment-service # 使用微服务名称查找路由地址，lb是用于识别负载均衡的前缀，不能修改
+          predicates:
+            - Path=/payment/get/** # 路径匹配断言
+        - id: payment_route2 # 路由ID，没有固定规则，需要保证唯一
+          # uri: http://localhost:8001 # 路由到哪个地址，实际提供微服务的地址
+          uri: lb://cloud-payment-service # 使用微服务名称查找路由地址，lb是用于识别负载均衡的前缀，不能修改
+          predicates:
+            - Path=/payment/loadbalance # 路径匹配断言
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    register-with-eureka: true # true：将自己注册进Eureka
+    fetch-registry: true # true：需要去注册中心获取其他服务地址
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
