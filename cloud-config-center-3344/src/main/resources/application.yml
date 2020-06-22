@@ -7,11 +7,10 @@ spring:
     config:
       server:
         git:
-          uri: git@github:com:WangShaoYang/Spring-Cloud.git # Github上的仓库地址
-          search-paths: # 搜索目录，这个目录指的是github上的目录
-            - config-repo
-      # 读取分支
-      label: master
+          uri: https://github.com/WangShaoYang/Spring-Cloud.git # Github上的仓库地址
+          search-paths: # 搜索目录，即配置文件的目录
+            - cloud-config-center-3344/src/main/resources/
+      label: master # 读取分支
 eureka:
   client:
     service-url:

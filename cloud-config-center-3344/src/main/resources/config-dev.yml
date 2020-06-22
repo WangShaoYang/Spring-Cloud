@@ -1,1 +1,2 @@
-dev
+config:
+  info: "This is config-dev.yml configuration from master branch in cloud-config-center-3344 module with version=1"
