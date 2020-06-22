@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/WangShaoYang/Spring-Cloud.git # Github上的仓库地址
           search-paths: # 搜索目录，即配置文件的目录
-            - cloud-config-center-3344/src/main/resources/
+            - cloud-config-center-3344/
       label: master # 读取分支
 eureka:
   client:
