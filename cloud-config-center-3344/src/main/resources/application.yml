@@ -11,7 +11,17 @@ spring:
           search-paths: # 搜索目录，即配置文件的目录
             - cloud-config-center-3344/
       label: master # 读取分支
+  rabbitmq: # 指定MQ的信息
+    host: 192.168.0.123
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh' # 暴露bus-refresh端口
