@@ -1,0 +1,32 @@
+server:
+  port: 8803
+spring:
+  application:
+    name: cloud-stream-consumer
+  cloud:
+    stream:
+      binders: # 此处配置要绑定的rabbitmq的服务信息
+        binderName: # 表示为binder对象定义一个名称，用于binding整合
+          type: rabbit # 消息组件类型
+          environment: # 设置rabbitmq的相关环境配置
+            spring:
+              rabbitmq:
+                host: 192.168.0.123
+                port: 5672
+                username: guest
+                password: guest
+      bindings: # 服务的整合处理
+        input: # 一个通道的名称，不能修改
+          destination: exchangeName # 表示RabbitMQ中要使用的Exchange名称，给Exchange起一个名字
+          content-type: application/json # 设置消息类型，本次为json，文本要设置为“text/plain”
+          binder: binderName # 表示binding对应哪个binder
+          group: myGroup
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30S）
+    lease-expiration-duration-in-seconds: 5 # 如果超过5S间隔就注销节点（默认是90s）
+    instance-id: consumer-8803.com # 在信息列表时显示主机名称
+    prefer-ip-address: true # 访问的路径变为IP地址
