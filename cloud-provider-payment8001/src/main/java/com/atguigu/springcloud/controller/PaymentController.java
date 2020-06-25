@@ -71,4 +71,9 @@ public class PaymentController {
         Thread.sleep(3000);
         return serverPort;
     }
+
+    @GetMapping("/payment/zipkin")
+    public String paymentZipkin() {
+        return "this is zipkin feedback";
+    }
 }

@@ -17,8 +17,8 @@ import java.util.List;
 
 @RestController
 public class OrderController {
-    // public static final String PAYMENT_URL = "http://localhost:8001";
-    private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+    public static final String PAYMENT_URL = "http://localhost:8001";
+    // private static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
@@ -66,5 +66,10 @@ public class OrderController {
         URI uri = instance.getUri();// 获取这个实例的uri
         // /payment/loadbalance请求对应服务提供者controller中新加的映射方法，返回当前服务提供者的serverPort的值
         return restTemplate.getForObject(uri + "/payment/loadbalance", String.class);
+    }
+
+    @GetMapping(value = "/consumer/payment/zipkin")
+    public String paymentZipkin() {
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin/", String.class);
     }
 }
