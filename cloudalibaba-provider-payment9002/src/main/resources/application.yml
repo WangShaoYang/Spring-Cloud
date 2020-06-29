@@ -1,0 +1,15 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.123:80 # 指向Nginx，由Nginx进行转发（nginx下部署了3台Nacos集群）
+        # server-addr: 192.168.0.123:8848 # 指明Nacos的地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
