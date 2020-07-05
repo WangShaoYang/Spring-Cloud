@@ -32,6 +32,10 @@
         <module>cloudalibaba-provider-payment9002</module>
         <module>cloudalibaba-consumer-nacos-order83</module>
         <module>cloudalibaba-config-nacos-client3377</module>
+        <module>cloudalibaba-sentinel-service8401</module>
+        <module>cloudalibaba-provider9003</module>
+        <module>cloudalibaba-provider9004</module>
+        <module>cloudalibaba-consumer-nacos84</module>
     </modules>
     <packaging>pom</packaging>
     <!--统一管理jar包和版本-->
@@ -65,11 +69,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--Spring Cloud Alibaba 2.2.0.RELEASE-->
+            <!--Spring Cloud Alibaba 2.1.1.RELEASE-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>2.2.0.RELEASE</version>
+                <version>2.1.1.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
