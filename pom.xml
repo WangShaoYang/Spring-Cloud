@@ -36,6 +36,9 @@
         <module>cloudalibaba-provider9003</module>
         <module>cloudalibaba-provider9004</module>
         <module>cloudalibaba-consumer-nacos84</module>
+        <module>cloudalibaba-seata-order-service2001</module>
+        <module>cloudalibaba-seata-storage-service2002</module>
+        <module>cloudalibaba-seata-account-service2003</module>
     </modules>
     <packaging>pom</packaging>
     <!--统一管理jar包和版本-->
